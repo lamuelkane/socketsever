@@ -6,7 +6,7 @@ const io = require('socket.io')(process.env.PORT || 5001, {
         origin:'http://localhost:3000',
         // methods:['GET', 'POST']
       }
-    })
+})
 
     
 // app.use(cors())
@@ -35,13 +35,13 @@ io.on('connection', (socket) => {
     adduser(socket.id, userid)
     addonlineuser(socket.id, userid)
     io.emit('getusers', onlineUsers)
-  } )
+})
 
   // send message to admin
-  socket.on('sendMessge', msg => {
+socket.on('sendMessge', msg => {
     console.log('sending message to ..... admin ....')
     io.emit('getusermessage', msg)
-  })
+})
 
   socket.on('usermessagestatus', senderid => {
     let receiver = users.find(user => user.userid === senderid)
