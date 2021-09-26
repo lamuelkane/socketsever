@@ -3,8 +3,8 @@ const app = require('express')();
 
 const io = require('socket.io')(process.env.PORT || 5001, {
       cors:{
-        origin:'http://localhost:3000',
-        // methods:['GET', 'POST']
+        // origin:'http://localhost:3000',
+        origin: 'https://advancedshopping.herokuapp.com',
       }
 })
 
@@ -67,12 +67,11 @@ socket.on('sendMessge', msg => {
    io.emit('removeuser', onlineUsers)
   })
 
-  // socket.on("disconnect", (reason) => {
-  //   console.log(reason + 'user disconnected'); // "ping timeout"
-  // });
-
 })
 
+app.get('/', (req, res) => {
+  re.send("socket server started")
+})
 
 // const port = process.env.PORT || 5001
 
