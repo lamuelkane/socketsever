@@ -73,6 +73,6 @@ app.get('/', (req, res) => {
   re.send("socket server started")
 })
 
-// const port = process.env.PORT || 5001
+const port = process.env.PORT || 5002
 
-// app.listen(port, ()=> console.log(`server listening on port ${port}`))
+app.listen(port, ()=> console.log(`server listening on port ${port}`))
